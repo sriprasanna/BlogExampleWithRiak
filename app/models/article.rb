@@ -7,11 +7,5 @@ class Article
   property :created_at, Time, :default => proc{ Time.now }
 
   many :comments
-
-  before_create :set_key
-
-  private
-  def set_key
-    self.key = self.name.downcase.gsub(/[^a-z0-9]+/i, "-")
-  end
+  key_on :name
 end
