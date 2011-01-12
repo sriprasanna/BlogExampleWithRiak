@@ -10,6 +10,7 @@ group :development, :test do
   gem 'hirb'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'jquery-rails'
 end
 
 # Bundle edge Rails instead:
@@ -38,3 +39,4 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
+gem "mocha", :group => :test
