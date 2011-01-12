@@ -5,9 +5,11 @@ gem 'curb'
 gem 'yajl-ruby'
 gem 'ripple'
 
-group :development do
+group :development, :test do
   gem 'nifty-generators'
   gem 'hirb'
+  gem 'rspec'
+  gem 'rspec-rails'
 end
 
 # Bundle edge Rails instead:

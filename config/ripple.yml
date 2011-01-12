@@ -11,11 +11,9 @@ development:
 # * js_source_dir specifies where your custom Javascript functions for
 #           MapReduce should be loaded from. Usually app/mapreduce.
 test:
-  port: 9000
+  port: 8091
   host: localhost
-  bin_dir: /usr/local/bin   # Default for Homebrew.
-  js_source_dir: <%= Rails.root + "app/mapreduce" %>
 
 production:
-  port: 8098
+  port: 8091
   host: localhost
