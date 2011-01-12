@@ -13,6 +13,23 @@
   <%= @article.tags.join(", ") %>
 </p>
 
+<h2> Comments (<%= @article.comments.count %>) </h2>
+<ol>
+<% @article.comments.sort{|x,y| y.created_at <=> x.created_at }.each do |comment| %>
+  <li>
+    <%= comment.text %>
+    <br/>
+    <i><%= comment.created_at %></i>
+  </li>
+<% end %>
+</ol>
+
+<% form_for Comment.new, :url => post_comment_article_path(@article), :html => {:method => :put}  do |f| %>
+  <%= f.text_area :text, :cols => 80, :rows => 5 %>
+  <br>
+  <%= f.submit "Post Comment" %>
+<% end %>
+
 <p>
   <%= link_to "Edit", edit_article_path(@article) %> |
   <%= link_to "Destroy", @article, :confirm => 'Are you sure?', :method => :delete %> |

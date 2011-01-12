@@ -6,6 +6,8 @@ class Article
   property :tags, Array, :presence => true
   property :created_at, Time, :default => proc{ Time.now }
 
+  many :comments
+
   before_create :set_key
 
   private

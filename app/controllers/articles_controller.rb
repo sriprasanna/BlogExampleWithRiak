@@ -42,4 +42,17 @@ class ArticlesController < ApplicationController
     flash[:notice] = "Successfully destroyed article."
     redirect_to articles_url
   end
+
+  def post_comment
+    @article = Article.find(params[:id])
+    comment = Comment.new(params[:comment])
+    if comment.valid?
+      @article.comments << comment
+      @article.save
+      flash[:notice] = "Successfully added comment."
+    else
+      flash[:error] = "Invalid comment."
+    end
+    redirect_to @article
+  end
 end

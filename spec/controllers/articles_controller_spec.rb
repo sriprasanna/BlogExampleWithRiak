@@ -56,4 +56,13 @@ describe ArticlesController do
     response.should redirect_to(articles_url)
     Article.exists?(article.id).should be_false
   end
+
+  it "post_comment action should add a new comment" do
+    article = Article.first
+    Article.should_receive(:find).and_return article
+    article.comments.count.should == 0
+    put :post_comment, :id => article, :comment => {:text => "text"}
+    article.comments.count.should == 1
+  end
+
 end
